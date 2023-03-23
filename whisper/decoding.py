@@ -542,8 +542,7 @@ class DecodingTask:
             self.decoder = GreedyDecoder(options.temperature, tokenizer.eot)
 
         # logit filters: applies various rules to suppress or penalize certain tokens
-        
-        = []
+        self.logit_filters = []
         if self.options.suppress_blank:
             self.logit_filters.append(SuppressBlank(self.tokenizer, self.sample_begin))
         if self.options.suppress_tokens:
